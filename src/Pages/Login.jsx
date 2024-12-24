@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate, } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import Swal from 'sweetalert2';
+import { toast } from 'react-toastify';
 
 const Login = () => {
-    const { SigninUser, googleSignupUser, setUser, user } = useContext(AuthContext)
+    const { SigninUser, googleSignupUser, } = useContext(AuthContext)
     const location = useLocation();
     const navigate = useNavigate()
     const handleLogin = e => {
@@ -17,11 +19,18 @@ const Login = () => {
             .then(result => {
                 // console.log('user login in', result.user)
                 const user = result.user;
-                setUser(user)
+                navigate(location?.state ? location.state : '/')
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Signin Successful ",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
                 // setUser(result.user)
                 // console.log('this is user', setUser)
-                const lastSignInTime = result?.user?.metadata?.lastSignInTime;
-                const loginInfo = { email, lastSignInTime };
+                // const lastSignInTime = result?.user?.metadata?.lastSignInTime;
+                // const loginInfo = { email, lastSignInTime };
 
                 // fetch(`https://visa-navigator-server-nu.vercel.app/users`, {
                 //     method: 'PATCH',
@@ -40,6 +49,7 @@ const Login = () => {
 
             .catch(error => {
                 console.log('ERROR', error.code)
+                toast.error(error.message)
             })
 
     }
@@ -49,11 +59,18 @@ const Login = () => {
             .then(result => {
                 // console.log('User', result.user)
                 const user = result.user;
-                setUser(user)
                 navigate(location?.state ? location.state : '/')
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Signin Successful ",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             })
             .catch(error => {
                 console.log("ERROR", error.message)
+                toast.error(error.message)
             })
     }
 

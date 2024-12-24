@@ -6,6 +6,12 @@ import Main from "../LayoutComponets/Main";
 import ErrorPage from "../Pages/ErrorPage";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import AllArtifacts from "../LayoutComponets/AllArtifacts";
+import AddArtifacts from "../LayoutComponets/AddArtifacts";
+import MyArtifacts from "../LayoutComponets/MyArtifacts";
+import LikeArtifacts from "../LayoutComponets/LikeArtifacts";
+import PrivetRouter from "./PrivetRouter";
+import Home from "../LayoutComponets/Home";
 
   const router = createBrowserRouter([
     {
@@ -14,23 +20,21 @@ import Register from "../Pages/Register";
      
       errorElement: <ErrorPage></ErrorPage>,
       children: [
-        // {
-        //   path: '/',
-        //   element:
-        //     <Home></Home>
+        {
+          path: '/',
+          element:<Home></Home>
           
-        // },
-        // {
-        //   path: '/myVisaApplications',
-        //   element: <PrivetRouter>
-        //     <MyVisaApplications></MyVisaApplications>
-        //   </PrivetRouter>
-        // },
-        // {
-        //   path: '/allVisas',
-        //   element: <AllVisas></AllVisas>,
-        //   loader: () => fetch('https://visa-navigator-server-nu.vercel.app/visa')
-        // },
+        },
+        {
+          path: '/allArtifacts',
+          element:<AllArtifacts></AllArtifacts>
+            
+        },
+        {
+          path: '/addArtifacts',
+          element:<PrivetRouter><AddArtifacts></AddArtifacts></PrivetRouter> ,
+          
+        },
         // {
         //   path:"/visa/:id",
         //   element: <PrivetRouter>
@@ -41,18 +45,18 @@ import Register from "../Pages/Register";
         //         res.json()
         //     ),
         // },
-        // {
-        //   path: '/addVisa',
-        //   element: <PrivetRouter>
-        //     <AddVisa></AddVisa>
-        //   </PrivetRouter>
-        // },
-        // {
-        //   path: '/myAddedVisas',
-        //   element: <PrivetRouter>
-        //     <MyAddedVisas></MyAddedVisas>
-        //   </PrivetRouter>
-        // },
+        {
+          path: '/myArtifacts',
+          element: <PrivetRouter>
+            <MyArtifacts></MyArtifacts>
+          </PrivetRouter>
+        },
+        {
+          path: '/likedArtifacts',
+          element: <PrivetRouter>
+            <LikeArtifacts></LikeArtifacts>
+          </PrivetRouter>
+        },
         {
           path: '/auth/login',
           element: <Login></Login>

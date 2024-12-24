@@ -9,7 +9,7 @@ import { AuthContext } from '../provider/AuthProvider';
 
 const Register = () => {
 
-    const { SignupUser, googleSignupUser, setUser } = useContext(AuthContext)
+    const { SignupUser, googleSignupUser } = useContext(AuthContext)
     const navigate = useNavigate()
     const [error, setError] = useState({});
 
@@ -45,8 +45,15 @@ const Register = () => {
 
         SignupUser(email, password)
             .then(result => {
-                const user =result.user
-                setUser(user)
+                const user = result.user
+                navigate("/");
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Registration Successful! ",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
                 const createdAt = result?.user?.metadata?.creationTime;
                 const newUser = { name, email, photo, createdAt }
                 // fetch('https://visa-navigator-server-nu.vercel.app/users', {
@@ -63,25 +70,19 @@ const Register = () => {
                 //         navigate("/");
 
 
-                        // Swal.fire({
-                        //     position: "top-end",
-                        //     icon: "success",
-                        //     title: "Registration Successful! ",
-                        //     showConfirmButton: false,
-                        //     timer: 1500
-                        //   });
-                    //     console.log(data)
-                    // })
+                // Swal.fire({
+                //     position: "top-end",
+                //     icon: "success",
+                //     title: "Registration Successful! ",
+                //     showConfirmButton: false,
+                //     timer: 1500
+                // });
+                //     console.log(data)
+                // })
             })
             .catch(error => {
                 const err = error.message;
-                // toast.error(err)
-                // Swal.fire({
-                //     icon: "error",
-                //     title: "Oops...",
-                //     text: {err},
-
-                //   });
+                toast.error(err)
                 console.log('ERROR', err)
             })
     }
@@ -89,7 +90,6 @@ const Register = () => {
         googleSignupUser()
             .then(result => {
                 const user = result.user;
-                setUser(user)
                 navigate("/");
             })
             .catch(error => {
@@ -140,9 +140,9 @@ const Register = () => {
                             className="outline-none w-full p-3 text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 rounded-md"
                         />
                     </div>
-                        {error.password && (
-                            <p className="text-red-500 text-sm ">{error.password}</p>
-                        )}
+                    {error.password && (
+                        <p className="text-red-500 text-sm ">{error.password}</p>
+                    )}
 
                     <button
                         type="submit"

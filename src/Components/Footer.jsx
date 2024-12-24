@@ -9,7 +9,7 @@ const Footer = () => {
                 <section className="flex flex-col space-y-4">
                     <h6 className="flex text-xl font-extrabold gap-2">
 
-                        <span className="text-white">Visa Navigator</span>
+                        <span className="text-white">Artifacts Tracker</span>
                     </h6>
                     <a className="text-[#FFFFFF99] link link-hover">Location: av. Washington 165, NY CA 54003</a>
                     <a className="text-[#FFFFFF99] link link-hover">Phone: +31 85 964 47 25</a>
