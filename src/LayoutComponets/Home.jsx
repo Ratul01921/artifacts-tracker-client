@@ -1,9 +1,10 @@
 import React from 'react';
+import TopArtifacts from '../Components/TopArtifacts';
 
 const Home = () => {
     return (
         <div>
-            <p>Home pages</p>
+            <TopArtifacts></TopArtifacts>
         </div>
     );
 };

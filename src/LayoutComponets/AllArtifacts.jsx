@@ -18,7 +18,7 @@ const AllArtifacts = () => {
                             <img
                                 src={artifactImage}
                                 alt={artifactName}
-                                className="w-full h-48 object-cover rounded-t-lg"
+                                className="w-full h-64 object-cover rounded-t-lg"
                             />
                         </figure>
                         <div className="card-body">
