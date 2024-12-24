@@ -27,7 +27,8 @@ import Home from "../LayoutComponets/Home";
         },
         {
           path: '/allArtifacts',
-          element:<AllArtifacts></AllArtifacts>
+          element:<AllArtifacts></AllArtifacts>,
+          loader: () => fetch('http://localhost:5555/artifacts')
             
         },
         {
