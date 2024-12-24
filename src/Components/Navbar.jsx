@@ -71,20 +71,20 @@ const Navbar = () => {
                                 </div>
                             </label>
                             {isHovering && (
-                                <div className="absolute mt-2 px-4 py-2 bg-gray-800 text-white rounded-lg shadow-lg">
+                                <div className="absolute  px-4  bg-gray-800 text-white rounded-lg shadow-lg">
                                     {user.displayName || 'Avatar'}
                                 </div>
                             )}
                         </div>
 
                         {/* Dropdown menu */}
-                        <div className="dropdown dropdown-end">
+                        <div className="dropdown dropdown-end z-10">
                             <label tabIndex={0} className="btn btn-ghost">
                                 My Profile
                             </label>
                             <ul
                                 tabIndex={0}
-                                className="menu dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-black"
+                                className="menu dropdown-content mt-2 p-2 shadow bg-base-100 rounded-box w-52 text-black"
                             >
                                 <li>
                                     <NavLink to="/myArtifacts">My Artifacts</NavLink>

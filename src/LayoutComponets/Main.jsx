@@ -7,7 +7,7 @@ const Main = () => {
     return (
         <div>
             
-            <section className='bg-blue-600'>
+            <section className='bg-blue-600 mb-6'>
             <Navbar></Navbar>
             </section>
             <Outlet></Outlet>
