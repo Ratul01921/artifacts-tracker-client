@@ -1,19 +1,18 @@
 import React from 'react';
 import { useContext } from 'react';
-import { useState } from 'react';
-import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
 import { AuthContext } from '../provider/AuthProvider';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const AddArtifacts = () => {
-    const [startDate, setStartDate] = useState(null);
     const { user } = useContext(AuthContext)
+    const navigate = useNavigate()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
         const form = e.target;
 
-        // Collect form data using e.target.name
 
         const artifactName = form.artifactName?.value || '';
         const artifactImage = form.artifactImage?.value || '';
@@ -41,27 +40,17 @@ const AddArtifacts = () => {
             },
             likeCount: 0,
         };
+        try {
+
+            await axios.post(`http://localhost:5555/add-artifact`, formData)
+
+            toast.success('Data Added Successfully!!!')
+            navigate('/allArtifacts')
+        } catch (err) {
+            console.log(err)
+            toast.error(err.message)
+        }
         console.log(formData)
-
-        // // Send data to backend or handle as needed
-        // try {
-        //     const response = await fetch('/api/artifacts', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify(formData),
-        //     });
-
-        //     if (response.ok) {
-        //         alert('Artifact added successfully!');
-        //     } else {
-        //         alert('Failed to add artifact');
-        //     }
-        // } catch (error) {
-        //     console.error('Error:', error);
-        //     alert('An error occurred while adding the artifact');
-        // }
     };
 
     return (
