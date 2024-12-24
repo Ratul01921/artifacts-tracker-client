@@ -12,6 +12,7 @@ import MyArtifacts from "../LayoutComponets/MyArtifacts";
 import LikeArtifacts from "../LayoutComponets/LikeArtifacts";
 import PrivetRouter from "./PrivetRouter";
 import Home from "../LayoutComponets/Home";
+import DetailsArtifact from "../Pages/DetailsArtifact";
 
   const router = createBrowserRouter([
     {
@@ -36,16 +37,16 @@ import Home from "../LayoutComponets/Home";
           element:<PrivetRouter><AddArtifacts></AddArtifacts></PrivetRouter> ,
           
         },
-        // {
-        //   path:"/visa/:id",
-        //   element: <PrivetRouter>
-        //     <DetailsVisa></DetailsVisa>
-        //   </PrivetRouter>,
-        //   loader: ({ params }) =>
-        //     fetch(`https://visa-navigator-server-nu.vercel.app/visa/${params.id}`).then((res) =>
-        //         res.json()
-        //     ),
-        // },
+        {
+          path:"/artifact/:id",
+          element: <PrivetRouter>
+            <DetailsArtifact></DetailsArtifact>
+          </PrivetRouter>,
+          loader: ({ params }) =>
+            fetch(`http://localhost:5555/artifact/${params.id}`).then((res) =>
+                res.json()
+            ),
+        },
         {
           path: '/myArtifacts',
           element: <PrivetRouter>
