@@ -13,6 +13,7 @@ import LikeArtifacts from "../LayoutComponets/LikeArtifacts";
 import PrivetRouter from "./PrivetRouter";
 import Home from "../LayoutComponets/Home";
 import DetailsArtifact from "../Pages/DetailsArtifact";
+import UpdateArtifact from "../Pages/UpdateArtifact";
 
   const router = createBrowserRouter([
     {
@@ -57,6 +58,13 @@ import DetailsArtifact from "../Pages/DetailsArtifact";
           path: '/likedArtifacts',
           element: <PrivetRouter>
             <LikeArtifacts></LikeArtifacts>
+          </PrivetRouter>,
+          
+        },
+        {
+          path: '/update/:id',
+          element: <PrivetRouter>
+            <UpdateArtifact></UpdateArtifact>
           </PrivetRouter>
         },
         {

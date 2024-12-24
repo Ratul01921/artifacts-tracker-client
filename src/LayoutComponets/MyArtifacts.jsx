@@ -5,7 +5,8 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { MdDeleteForever } from "react-icons/md";
 
 const MyArtifacts = () => {
     const { user } = useContext(AuthContext)
@@ -34,9 +35,6 @@ const MyArtifacts = () => {
             console.log(err)
             toast.error(err.message)
         }
-    }
-    const handleUpdate = id => {
-        console.log(id)
     }
 
     if (artifacts?.length === 0) {
@@ -78,18 +76,31 @@ const MyArtifacts = () => {
                         <p className="text-sm text-gray-600 mb-2">{artifact.historicalContext}</p>
                         <p className="text-sm font-semibold">Type: {artifact.artifactType}</p>
                         <p className="text-sm font-semibold">Added By: {artifact.addedBy.name}</p>
-                        <div className="flex justify-between mt-4">
-                            <button
-                                onClick={() => handleUpdate(artifact._id)}
-                                className="btn btn-primary btn-sm"
+                        <div className="flex justify-between items-center mt-4">
+                            <Link
+                                to={`/update/${artifact._id}`}
+                                className='text-gray-500 transition-colors duration-200   hover:text-yellow-500 focus:outline-none'
                             >
-                                Update
-                            </button>
+                                <svg
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    fill='none'
+                                    viewBox='0 0 24 24'
+                                    strokeWidth='1.5'
+                                    stroke='currentColor'
+                                    className='w-5 h-5 '
+                                >
+                                    <path
+                                        strokeLinecap='round'
+                                        strokeLinejoin='round'
+                                        d='M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10'
+                                    />
+                                </svg>
+                            </Link>
                             <button
                                 onClick={() => handleDelete(artifact._id)}
-                                className="btn btn-error btn-sm"
+                                className="btn text-2xl text-red-500"
                             >
-                                Delete
+                                <MdDeleteForever />
                             </button>
                         </div>
                     </div>
