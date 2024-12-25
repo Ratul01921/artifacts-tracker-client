@@ -7,6 +7,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 import { MdDeleteForever } from "react-icons/md";
+import Swal from 'sweetalert2';
 
 const MyArtifacts = () => {
     const { user } = useContext(AuthContext)
@@ -22,20 +23,35 @@ const MyArtifacts = () => {
         setArtifacts(data)
     }
 
-    // delete functionality
+
     const handleDelete = async id => {
         try {
-            const { data } = await axios.delete(
-                `http://localhost:5555/artifact/${id}`
-            )
-            console.log(data)
-            toast.success('Data Deleted Successfully!!!')
-            fetchAllArtifacts()
+          const result = await Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          });
+      
+          
+          if (result.isConfirmed) {
+            await axios.delete(`http://localhost:5555/artifact/${id}`);
+            
+            Swal.fire({
+              title: "Deleted!",
+              text: "Data Deleted Successfully!!!",
+              icon: "success"
+            });
+            fetchAllArtifacts();
+            navigate('/allArtifacts')
+          }
         } catch (err) {
-            console.log(err)
-            toast.error(err.message)
+          toast.error(err.message);
         }
-    }
+      };
 
     if (artifacts?.length === 0) {
         return (

@@ -94,6 +94,7 @@ const Register = () => {
             })
             .catch(error => {
                 console.log("ERROR", error.message)
+                toast.error(err)
             })
     }
     return (

@@ -20,10 +20,6 @@ const Navbar = () => {
         logOut();
         navigate('/');
     };
-    // const link2 = <>
-    //     <Link className="btn  bg-white text-blue-600  rounded-lg mr-5 hover:bg-gray-200" to='/auth/login'>LogIn</Link>
-    //     <Link className="btn  bg-white text-blue-600  rounded-lg hover:bg-gray-200" to='/auth/register'>Register</Link>
-    // </>
     return (
         <div className="navbar w-11/12 mx-auto  text-white">
 
