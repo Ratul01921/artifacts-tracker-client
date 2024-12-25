@@ -32,7 +32,7 @@ const FAQ = () => {
     };
 
     return (
-        <div className="py-16 bg-gray-200">
+        <div className="py-16 bg-gray-200 w-11/12 mx-auto">
             <div className="container mx-auto px-6">
                 <h2 className="text-4xl font-bold text-center mb-8">Frequently Asked Questions</h2>
                 <div className="flex flex-col md:flex-row justify-between items-center space-x-8 gap-6">
