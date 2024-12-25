@@ -9,7 +9,7 @@ const TopArtifacts = () => {
     useEffect(() => {
         const fetchTopArtifacts = async () => {
             try {
-                const response = await fetch('http://localhost:5555/top-artifacts'); 
+                const response = await fetch('http://localhost:5555/top-artifacts');
                 const data = await response.json();
                 setArtifacts(data);
             } catch (error) {
@@ -19,7 +19,13 @@ const TopArtifacts = () => {
         fetchTopArtifacts();
     }, []);
     return (
-        <div>
+        <div className='w-11/12 mx-auto my-8 bg-gray-200'>
+            <div className="text-center p-6">
+                <h2 className="text-4xl font-bold">
+                    Most Popular Artifacts
+                </h2>
+                <p className="text-lg  mt-2">Discover the most iconic and historically significant artifacts.</p>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
                 {artifacts?.map(({ _id, artifactImage, artifactName, historicalContext, likeCount }) => (
                     <div
@@ -48,12 +54,12 @@ const TopArtifacts = () => {
                     </div>
                 ))}
             </div>
-            <div className="text-center mt-8">
+            <div className="text-center p-6">
                 <Link
                     to="/allArtifacts"
-                    className="btn btn-secondary hover:bg-gray-700"
+                    className="btn btn-secondary hover:bg-gray-700 "
                 >
-                    See All
+                    See All Artifact
                 </Link>
             </div>
         </div>
@@ -71,4 +77,3 @@ export default TopArtifacts;
 
 
 
-  

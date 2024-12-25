@@ -48,7 +48,7 @@ const Slider = () => {
               <img
                 src={artifact.image}
                 alt={artifact.title}
-                className="w-full h-[600px] object-cover"
+                className="w-full h-[400px] md:h-[600px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-800/30 to-transparent"></div>
               <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-center text-white px-5">
