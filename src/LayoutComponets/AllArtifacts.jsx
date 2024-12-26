@@ -14,7 +14,6 @@ const AllArtifacts = () => {
         fetchArtifacts();
     }, [search]);
 
-    console.log(artifacts)
     return (
         <div className='p-6'>
              <h1 className="text-4xl text-center font-bold mb-6">All Artifacts</h1>
