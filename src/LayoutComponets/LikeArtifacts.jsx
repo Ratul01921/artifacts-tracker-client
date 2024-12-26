@@ -11,7 +11,7 @@ const LikeArtifacts = () => {
                     console.error('User is not logged in or email is missing');
                     return;
                 }
-                const response = await fetch(`http://localhost:5555/artifacts/likes/${user.email}`);
+                const response = await fetch(`https://artifacts-tracker-server.vercel.app/artifacts/likes/${user.email}`);
                 const data = await response.json();
                 setLikedArtifacts(data);
             } catch (error) {

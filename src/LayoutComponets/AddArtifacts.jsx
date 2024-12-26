@@ -42,7 +42,7 @@ const AddArtifacts = () => {
         };
         try {
 
-            await axios.post(`http://localhost:5555/add-artifact`, formData)
+            await axios.post(`https://artifacts-tracker-server.vercel.app/add-artifact`, formData)
 
             toast.success('Data Added Successfully!!!')
             navigate('/allArtifacts')

@@ -44,7 +44,7 @@ import UpdateArtifact from "../Pages/UpdateArtifact";
             <DetailsArtifact></DetailsArtifact>
           </PrivetRouter>,
           loader: ({ params }) =>
-            fetch(`http://localhost:5555/artifact/${params.id}`).then((res) =>
+            fetch(`https://artifacts-tracker-server.vercel.app/artifact/${params.id}`).then((res) =>
                 res.json()
             ),
         },

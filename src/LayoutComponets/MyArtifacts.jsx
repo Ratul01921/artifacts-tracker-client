@@ -18,7 +18,7 @@ const MyArtifacts = () => {
     }, [user])
     const fetchAllArtifacts = async () => {
         const { data } = await axios.get(
-            `http://localhost:5555/artifacts/${user?.email}`, {withCredentials: true}
+            `https://artifacts-tracker-server.vercel.app/artifacts/${user?.email}`, {withCredentials: true}
         )
         setArtifacts(data)
     }
@@ -38,7 +38,7 @@ const MyArtifacts = () => {
       
           
           if (result.isConfirmed) {
-            await axios.delete(`http://localhost:5555/artifact/${id}`);
+            await axios.delete(`https://artifacts-tracker-server.vercel.app/artifact/${id}`);
             
             Swal.fire({
               title: "Deleted!",

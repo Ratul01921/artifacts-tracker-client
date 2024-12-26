@@ -9,7 +9,7 @@ const TopArtifacts = () => {
     useEffect(() => {
         const fetchTopArtifacts = async () => {
             try {
-                const response = await fetch('http://localhost:5555/top-artifacts');
+                const response = await fetch('https://artifacts-tracker-server.vercel.app/top-artifacts');
                 const data = await response.json();
                 setArtifacts(data);
             } catch (error) {

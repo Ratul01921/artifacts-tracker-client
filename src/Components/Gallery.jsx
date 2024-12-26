@@ -9,7 +9,7 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa"
 const Gallery = () => {
     const [items, setItems] = useState(null);
     useEffect(()=>{
-        fetch('http://localhost:5555/artifacts')
+        fetch('https://artifacts-tracker-server.vercel.app/artifacts')
         .then(res => res.json())
         .then(data => setItems(data))
     },[])

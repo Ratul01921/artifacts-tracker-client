@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
             if (user?.email) {
                 const user_email = { email: user.email };
 
-                axios.post('http://localhost:5555/jwt', user_email, { withCredentials: true })
+                axios.post('https://artifacts-tracker-server.vercel.app/jwt', user_email, { withCredentials: true })
                     .then(res => {
                         console.log('login token', res.data);
                         setLoading(false);
@@ -52,7 +52,7 @@ const AuthProvider = ({ children }) => {
 
             }
             else {
-                axios.post('http://localhost:5555/logout', {}, {
+                axios.post('https://artifacts-tracker-server.vercel.app/logout', {}, {
                     withCredentials: true
                 })
                     .then(res => {

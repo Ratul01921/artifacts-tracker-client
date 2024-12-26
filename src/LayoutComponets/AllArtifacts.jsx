@@ -7,7 +7,7 @@ const AllArtifacts = () => {
 
     useEffect(() => {
         const fetchArtifacts = async () => {
-            const response = await fetch(`http://localhost:5555/artifacts?search=${search}`);
+            const response = await fetch(`https://artifacts-tracker-server.vercel.app/artifacts?search=${search}`);
             const data = await response.json();
             setArtifacts(data);
         };

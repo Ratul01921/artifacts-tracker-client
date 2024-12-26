@@ -18,7 +18,7 @@ const DetailsArtifact = () => {
         setLikeCount(likeCount + 1);
 
         try {
-            const response = await fetch(`http://localhost:5555/artifacts/${artifact._id}`, {
+            const response = await fetch(`https://artifacts-tracker-server.vercel.app/artifacts/${artifact._id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

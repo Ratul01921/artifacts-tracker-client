@@ -23,7 +23,7 @@ const UpdateArtifact = () => {
 
   const fetchArtifactData = async () => {
     const { data } = await axios.get(
-      `http://localhost:5555/artifact/${id}`
+      `https://artifacts-tracker-server.vercel.app/artifact/${id}`
     )
     setArtifact(data)
   }
@@ -53,7 +53,7 @@ const UpdateArtifact = () => {
 
     try {
       await axios.put(
-        `http://localhost:5555/update-artifact/${id}`,
+        `https://artifacts-tracker-server.vercel.app/update-artifact/${id}`,
         formData
       )
       form.reset()
