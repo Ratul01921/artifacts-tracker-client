@@ -19,7 +19,7 @@ const TopArtifacts = () => {
         fetchTopArtifacts();
     }, []);
     return (
-        <div className='w-11/12 mx-auto my-8 bg-gray-200'>
+        <div className='w-11/12 mx-auto my-6 bg-gray-200'>
             <div className="text-center p-6">
                 <h2 className="text-4xl font-bold">
                     Most Popular Artifacts
