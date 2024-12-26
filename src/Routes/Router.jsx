@@ -30,7 +30,7 @@ import UpdateArtifact from "../Pages/UpdateArtifact";
         {
           path: '/allArtifacts',
           element:<AllArtifacts></AllArtifacts>,
-          loader: () => fetch('http://localhost:5555/artifacts')
+         
             
         },
         {

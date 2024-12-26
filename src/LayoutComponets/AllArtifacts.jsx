@@ -5,7 +5,6 @@ const AllArtifacts = () => {
     const [artifacts, setArtifacts] = useState([]);
     const [search, setSearch] = useState('');
 
-    // Fetch artifacts whenever search query changes
     useEffect(() => {
         const fetchArtifacts = async () => {
             const response = await fetch(`http://localhost:5555/artifacts?search=${search}`);
