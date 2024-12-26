@@ -9,7 +9,7 @@ The project aims to:
 - Offer features for managing and tracking artifacts efficiently.
 
 ## Live URL
-Access the live version of the project here: [Historical Artifacts Tracker](#https://artifacts-tracker-84d4a.web.app/)
+Access the live version of the project here: [https://artifacts-tracker-84d4a.web.app/](#)
 
 ## Key Features
 - **Artifact Management:** Add, update, and delete artifacts.
