@@ -6,8 +6,7 @@ import logo from '../assets/logoo.png';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-    const [isHovering, setIsHovering] = useState(false);
-    const [menuOpen, setMenuOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);  // State to control dropdown visibility
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -30,7 +29,7 @@ const Navbar = () => {
     );
 
     return (
-        <div className="fixed top-0 left-0 w-full z-50 bg-gray-800 text-white shadow-md overflow-x-hidden">
+        <div className="fixed top-0 left-0 w-full z-50 bg-gray-800 text-white shadow-md">
             <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between py-2 w-full flex-wrap">
                     {/* Navbar Start */}
@@ -79,31 +78,41 @@ const Navbar = () => {
                     </div>
 
                     {/* Navbar End */}
-                    <div className="hidden lg:flex items-center">
+                    <div className="hidden lg:flex items-center relative">
                         {user ? (
-                            <div className="flex items-center gap-4">
-                                {/* Profile Avatar */}
-                                <div
-                                    className="dropdown dropdown-end relative"
-                                    onMouseEnter={() => setIsHovering(true)}
-                                    onMouseLeave={() => setIsHovering(false)}
-                                >
-                                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                            <div className="flex items-center gap-4 relative"> {/* Added relative positioning */}
+                                {/* Profile Dropdown */}
+                                <div className="relative">
+                                    <button
+                                        onClick={() => setMenuOpen(!menuOpen)}  // Toggle dropdown on click
+                                        className="btn btn-ghost btn-circle avatar"
+                                    >
                                         <div className="w-10 rounded-full">
                                             <img src={user.photoURL || avatar} alt="Profile" />
                                         </div>
-                                    </label>
-                                    {isHovering && (
-                                        <div className="absolute px-4 py-1 mt-2 bg-gray-800 text-white rounded-lg shadow-lg text-sm">
-                                            {user.displayName || 'Avatar'}
-                                        </div>
+                                    </button>
+
+                                    {/* Dropdown Menu */}
+                                    {menuOpen && (
+                                        <ul className="absolute right-0 mt-3 p-2 shadow-lg bg-gray-800 rounded-lg w-52 z-10 max-h-64 overflow-auto">
+                                            <li>
+                                                <Link to="/myArtifacts" className="block text-white hover:bg-gray-700 p-2 rounded-md">
+                                                    My Artifacts
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/likedArtifacts" className="block text-white hover:bg-gray-700 p-2 rounded-md">
+                                                    Liked Artifacts
+                                                </Link>
+                                            </li>
+                                        </ul>
                                     )}
                                 </div>
 
-                                {/* Logout Button */}
+                                {/* Logout Button next to Profile */}
                                 <button
                                     onClick={handleLogout}
-                                    className="bg-red-500 text-white px-4 py-2 rounded text-sm hover:bg-red-600 transition"
+                                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm"
                                 >
                                     Logout
                                 </button>
@@ -143,10 +152,7 @@ const Navbar = () => {
                                         <span>{user.displayName || 'Avatar'}</span>
                                     </div>
                                     <button
-                                        onClick={() => {
-                                            handleLogout();
-                                            setMenuOpen(false);
-                                        }}
+                                        onClick={handleLogout}
                                         className="mt-2 bg-red-500 px-4 py-2 rounded text-sm hover:bg-red-600 transition"
                                     >
                                         Logout
