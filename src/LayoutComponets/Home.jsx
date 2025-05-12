@@ -3,6 +3,7 @@ import TopArtifacts from '../Components/TopArtifacts';
 import Slider from '../Components/Slider';
 import FAQ from '../Components/FAQ';
 import Gallery from '../Components/Gallery';
+import NewsletterSignup from '../Components/NewsletterSignup';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <TopArtifacts></TopArtifacts>
             <Gallery></Gallery>
             <FAQ></FAQ>
+            <NewsletterSignup></NewsletterSignup>
         </div>
     );
 };
