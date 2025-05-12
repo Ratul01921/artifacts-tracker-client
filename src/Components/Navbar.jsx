@@ -27,7 +27,7 @@ const Navbar = () => {
     <div className="w-11/12 mx-auto flex items-center justify-between">
         {/* Navbar Start */}
         <div className="navbar-start flex items-center">
-            <Link to={'/'} className="flex items-center gap-2 btn btn-ghost text-lg md:text-xl">
+            <Link to={'/'} className="flex items-center gap-1 btn btn-ghost text-lg md:text-xl">
                 <img src={logo} alt="Logo" className="w-10 h-10" />
                 <span>Artifacts Tracker</span>
             </Link>
