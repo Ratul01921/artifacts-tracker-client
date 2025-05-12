@@ -57,7 +57,7 @@ const TopArtifacts = () => {
             <div className="text-center p-6">
                 <Link
                     to="/allArtifacts"
-                    className="btn btn-secondary hover:bg-gray-700 "
+                    className="btn btn-primary hover:bg-gray-700 "
                 >
                     See All Artifact
                 </Link>
