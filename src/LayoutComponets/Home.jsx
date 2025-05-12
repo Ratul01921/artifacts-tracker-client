@@ -4,6 +4,7 @@ import Slider from '../Components/Slider';
 import FAQ from '../Components/FAQ';
 import Gallery from '../Components/Gallery';
 import NewsletterSignup from '../Components/NewsletterSignup';
+import Testimonials from '../Components/Testimonials';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <Slider></Slider>
             <TopArtifacts></TopArtifacts>
             <Gallery></Gallery>
+            <Testimonials></Testimonials>
             <FAQ></FAQ>
             <NewsletterSignup></NewsletterSignup>
         </div>

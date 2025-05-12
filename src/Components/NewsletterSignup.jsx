@@ -38,11 +38,11 @@ const NewsletterSignup = () => {
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="px-4 py-2 w-full sm:w-auto flex-1 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="px-4 py-3 w-full sm:w-auto flex-1 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
             <button
               type="submit"
-              className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+              className="px-6 py-2 btn btn-primary  rounded hover:bg-blue-700 "
             >
               Subscribe
             </button>
